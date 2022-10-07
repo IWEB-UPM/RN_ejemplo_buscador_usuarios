@@ -1,22 +1,23 @@
-import { View, Button, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Button, Text, Image, StyleSheet, FlatList } from 'react-native';
 
 export default function Resultados(props) {
 
-  console.log(props.resultado);
-	return (
-    <View style={styles.content}>
-    <ScrollView>
-      {props.resultado.map(item => (
-        <View key={item.id}>          
-          <Text>Nombre: {item.firstName} {item.lastName}</Text>
-          <Text>Email: {item.email}</Text>
-          <Image style={styles.image} source={{uri: item.image}}/>
-        </View>
-      ))}
-    </ScrollView>
-    
+  const renderItem = ({item}) => (
+  
+    <View key={item.id}>          
+      <Text>Nombre: {item.firstName} {item.lastName}</Text>
+      <Text>Email: {item.email}</Text>
+      <Image style={styles.image} source={{uri: item.image}}/>
+    </View>
+  )
 
-  </View>)
+	return (
+    <FlatList
+      data={props.resultado}
+      renderItem={renderItem}
+
+    />
+  )
 }
 
 const styles = StyleSheet.create({

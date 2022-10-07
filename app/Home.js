@@ -45,8 +45,8 @@ function Home() {
         <View>
           <TextInput type="text" id="query" placeholder="Texto a buscar" value={query} onChangeText={setQuery}></TextInput>
         </View>
-        <Button title='Buscar' id="botonsearch" className="new" onPress={()=>callServer()}/>
-        <Button title="Ver todos" id="botonall" className="new" onPress={()=>callServer("all")}/>      
+        <Button title='Buscar' id="botonsearch" className="new" onPress={() =>callServer()}/>
+        <Button title="Ver todos" id="botonall" className="new" onPress={() =>callServer("all")}/>      
         {resultado && <Resultados numitems={CONFIG.num_items} resultado={resultado} />} 
       </View>
 
